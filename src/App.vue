@@ -1,12 +1,7 @@
 <template>
-  <Home />
+  <router-view />
 </template>
 <script>
-import Hemo from './views/Home';
-export default {
-  components: { Home }
-};
+export default {};
 </script>
-<style lang="less">
-
-</style>
+<style lang="less"></style>

@@ -1,6 +1,12 @@
 <template>
   <div class="m-json-formdata-transfer">
-    <el-input class="json-input" type="textarea" :rows="6" placeholder="请输入json内容" v-model="jsonStr" />
+    <el-input
+      class="json-input"
+      type="textarea"
+      :rows="6"
+      placeholder="请输入json内容"
+      v-model="jsonStr"
+    />
     <div class="mid">
       <el-select v-model="options" palceholder="arrayFormat">
         <el-option value="indices">indices</el-option>
@@ -11,7 +17,13 @@
       <el-button @click="trans2formData">&gt;&gt;转为formData</el-button>
       <el-button @click="trans2json">&lt;&lt;转为json</el-button>
     </div>
-    <el-input class="formdata-input" type="textarea" :rows="6" placeholder="请输入formData" v-model="formDataStr" />
+    <el-input
+      class="formdata-input"
+      type="textarea"
+      :rows="6"
+      placeholder="请输入formData"
+      v-model="formDataStr"
+    />
   </div>
 </template>
 
@@ -19,7 +31,7 @@
 import qs from 'qs';
 
 export default {
-  data: function() {
+  data: function () {
     return {
       jsonStr: '',
       formDataStr: '',

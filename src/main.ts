@@ -1,7 +1,8 @@
 import Vue from 'vue';
-import Hemo from './views/Home.vue';
+import App from './App.vue';
+import router from './router';
 import './ele';
 
-Vue.config.productionTip = false;
+Vue.config.productionTip = process.env.NODE_ENV !== 'development';
 
-new Vue({ render: h => h(Hemo) }).$mount('#app');
+new Vue({ render: (h) => h(App), router }).$mount('#app');

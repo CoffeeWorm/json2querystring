@@ -18,18 +18,20 @@
   },
   "devDependencies": {
     "@types/qs": "^6.9.0",
-    "@vue/cli-plugin-eslint": "^4.1.0",
-    "@vue/cli-plugin-router": "^4.1.0",
-    "@vue/cli-plugin-typescript": "^4.5.13",
-    "@vue/cli-plugin-vuex": "^4.1.0",
-    "@vue/cli-service": "^4.5.13",
-    "@vue/eslint-config-typescript": "^4.0.0",
-    "eslint": "^5.16.0",
-    "eslint-plugin-vue": "^5.0.0",
-    "less": "^3.0.4",
-    "less-loader": "^5.0.0",
+    "@vue/cli-plugin-eslint": "^5.0.6",
+    "@vue/cli-plugin-router": "^5.0.6",
+    "@vue/cli-plugin-typescript": "^5.0.6",
+    "@vue/cli-plugin-vuex": "^5.0.6",
+    "@vue/cli-service": "^5.0.6",
+    "@vue/eslint-config-typescript": "^11.0.0",
+    "@wei-tools/prettier-config": "^0.1.0",
+    "eslint": "^7.32.0",
+    "eslint-plugin-vue": "^9.1.1",
+    "less": "^4.1.3",
+    "less-loader": "^11.0.0",
     "lint-staged": "^9.5.0",
-    "typescript": "~3.5.3",
+    "prettier": "^2.7.1",
+    "typescript": "^4.7.4",
     "vue-template-compiler": "^2.6.10"
   },
   "gitHooks": {
@@ -37,8 +39,7 @@
   },
   "lint-staged": {
     "*.{js,vue,ts}": [
-      "vue-cli-service lint",
-      "git add"
+      "vue-cli-service lint"
     ]
   }
 }
