@@ -5,6 +5,7 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
+    "build:docs": "./scripts/docs.sh",
     "lint": "vue-cli-service lint",
     "inspect": "echo 'module.exports='> webpack.config.js && vue-cli-service inspect >> webpack.config.js"
   },
