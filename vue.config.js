@@ -1,3 +1,14 @@
+const { name } = require('./package.json');
+
 module.exports = {
-  publicPath: `/${require('./package.json').name}`
+  publicPath: `/${name}`,
+  configureWebpack: {
+    output: {
+      library: `${name}-[name]`,
+      libraryTarget: 'umd'
+    },
+    devServer: {
+      headers: { 'Access-Control-Allow-Origin': '*' }
+    }
+  }
 };
