@@ -21,7 +21,7 @@
     "@vue/cli-plugin-babel": "^5.0.6",
     "@vue/cli-plugin-eslint": "^5.0.6",
     "@vue/cli-plugin-typescript": "^5.0.6",
-    "@vue/cli-service": "^5.0.6",
+    "@vue/cli-service": "^5.0.8",
     "@vue/eslint-config-typescript": "^11.0.0",
     "@wei-tools/prettier-config": "^0.1.0",
     "babel-plugin-component": "^1.1.1",
