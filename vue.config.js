@@ -1,6 +1,7 @@
+const { defineConfig } = require('@vue/cli-service');
 const { name } = require('./package.json');
 
-module.exports = {
+module.exports = defineConfig({
   configureWebpack: {
     output: {
       library: `${name}-[name]`,
@@ -8,6 +9,7 @@ module.exports = {
     },
     devServer: {
       headers: { 'Access-Control-Allow-Origin': '*' }
-    }
+    },
+    plugins: [require('unplugin-element-plus/webpack')()]
   }
-};
+});
