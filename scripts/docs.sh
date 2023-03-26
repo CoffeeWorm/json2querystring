@@ -1,7 +1,7 @@
-echo "npm install"
-npm install
+echo "pnpm install"
+pnpm install
 echo "build start."
-npm run build
+pnpm run build
 echo "rm docs"
 rm -rf docs
 echo "move files."
