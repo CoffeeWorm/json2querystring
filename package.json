@@ -1,5 +1,5 @@
 {
-  "name": "json2formdata",
+  "name": "json2querystring",
   "version": "0.1.0",
   "private": true,
   "scripts": {
