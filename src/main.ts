@@ -3,17 +3,12 @@ import pinia from './store';
 import App from './App.vue';
 import 'element-plus/theme-chalk/index.css';
 
-const render = (container: Element | `#${string}` = '#app') => {
-  const node: Element | null | undefined =
-  typeof container === 'string'
-  ? document.querySelector(container)
-  : container;
-  
+const render = (container: Element | Document = document, id = '#app') => {
+  const node: Element | null | undefined = container.querySelector(id);  
   if (!node) throw new Error(`Can not find the ${container} element!`);
   const app = createApp(App);
   app.use(pinia);
   app.mount(node);
-
   return app;
 };
 
