@@ -78,7 +78,7 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, defineEmits, computed } from 'vue';
+import { ref, computed } from 'vue';
 import prettier from 'prettier';
 import babelParser from 'prettier/parser-babel';
 import {
@@ -176,9 +176,9 @@ const handleJSONInput = (value: string) => {
 const handleTypeChange = (value: StringifyOptions) => {
   _type.value = value;
   emit('input', {
-    json: _JSONStr.value,
+    json: JSONStr.value,
     qs: queryString.value,
-    type: type.value
+    type: _type.value
   });
 };
 const handler = (fn: () => void) => {
