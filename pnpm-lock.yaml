@@ -29,6 +29,7 @@ specifiers:
   typescript: ^4.7.4
   unplugin-element-plus: ^0.7.0
   vue: ^3.2.47
+  vuedraggable: ^4.1.0
   webpack: ^5.76.3
 
 dependencies:
@@ -41,6 +42,7 @@ dependencies:
   prettier: 2.8.7
   qs: 6.11.1
   vue: 3.2.47
+  vuedraggable: 4.1.0_vue@3.2.47
 
 devDependencies:
   '@babel/core': 7.21.3
@@ -6990,6 +6992,10 @@ packages:
       websocket-driver: 0.7.4
     dev: true
 
+  /sortablejs/1.14.0:
+    resolution: {integrity: sha512-pBXvQCs5/33fdN1/39pPL0NZF20LeRbLQ5jtnheIPN9JQAaufGjKdWduZn4U7wCtVuzKhmRkI0DFYHYRbB2H1w==}
+    dev: false
+
   /source-map-js/1.0.2:
     resolution: {integrity: sha512-R0XvVJ9WusLiqTCEiGCmICCMplcCkIwwR11mOSD9CR5u+IXYdiseeEuXCVAjS54zqwkLcPNnmU4OeJ6tUrWhDw==}
     engines: {node: '>=0.10.0'}
@@ -7673,6 +7679,15 @@ packages:
       '@vue/runtime-dom': 3.2.47
       '@vue/server-renderer': 3.2.47_vue@3.2.47
       '@vue/shared': 3.2.47
+
+  /vuedraggable/4.1.0_vue@3.2.47:
+    resolution: {integrity: sha512-FU5HCWBmsf20GpP3eudURW3WdWTKIbEIQxh9/8GE806hydR9qZqRRxRE3RjqX7PkuLuMQG/A7n3cfj9rCEchww==}
+    peerDependencies:
+      vue: ^3.0.1
+    dependencies:
+      sortablejs: 1.14.0
+      vue: 3.2.47
+    dev: false
 
   /watchpack/2.4.0:
     resolution: {integrity: sha512-Lcvm7MGST/4fup+ifyKi2hjyIAwcdI4HRgtvTpIUxBRhB+RFtUh8XtDOxUfctVCnhVi+QQj49i91OyvzkJl6cg==}
