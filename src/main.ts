@@ -1,15 +1,20 @@
-import Vue from 'vue';
+import { createApp } from 'vue';
+import pinia from './store';
 import App from './App.vue';
-import 'element-ui/packages/theme-chalk/lib/reset.css';
+import 'element-plus/theme-chalk/index.css';
 
-Vue.config.productionTip = process.env.NODE_ENV !== 'development';
+const render = (container: Element | `#${string}` = '#app') => {
+  const node: Element | null | undefined =
+  typeof container === 'string'
+  ? document.querySelector(container)
+  : container;
+  
+  if (!node) throw new Error(`Can not find the ${container} element!`);
+  const app = createApp(App);
+  app.use(pinia);
+  app.mount(node);
 
-const render = (container?: Document) => {
-  const id = '#app';
-  const node = container
-    ? container.querySelector(id)!
-    : document.querySelector(id)!;
-  return new Vue({ render: (h) => h(App) }).$mount(node);
+  return app;
 };
 
 if (!window.__POWERED_BY_QIANKUN__) render();
@@ -23,5 +28,5 @@ export async function mount({ container }: Record<string, any>) {
 }
 
 export async function unmount() {
-  app?.$destroy();
+  app?.unmount();
 }
