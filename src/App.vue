@@ -25,7 +25,6 @@
               <ElButton
                 v-if="list.length > 1"
                 class="transfer-container__handle-btn"
-                @click="add(id)"
               >
                 <ElIcon><Sort /></ElIcon>
               </ElButton>
