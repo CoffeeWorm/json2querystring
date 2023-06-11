@@ -90,27 +90,27 @@ import {
   ElInput,
   ElMessage
 } from 'element-plus';
-import qs, { IStringifyOptions } from 'qs';
+import qsUtil from 'query-string';
+import type { FormatOptions } from './interface';
 
-export type StringifyOptions = Exclude<
-  IStringifyOptions['arrayFormat'],
-  undefined
->;
-const options: StringifyOptions[] = ['indices', 'brackets', 'repeat', 'comma'];
-
+const options: FormatOptions[] = ['none', 'index', 'bracket', 'comma'];
 const props = defineProps<{
-  value?: { json: string; qs: string; type: StringifyOptions };
+  value?: { json: string; qs: string; type: FormatOptions };
 }>();
 const emit = defineEmits(['input']);
 
+const DEFAULT_ARRAY_FORMAT = 'none';
 const DEFAULT_ROWS = 15;
 const _JSONStr = ref('');
 const _queryString = ref('');
-const _type = ref<StringifyOptions>('brackets');
+const _type = ref<FormatOptions>(DEFAULT_ARRAY_FORMAT);
 
 const JSONStr = computed(() => props.value?.json || _JSONStr.value);
 const queryString = computed(() => props.value?.qs || _queryString.value);
-const type = computed(() => props.value?.type || _type.value);
+const type = computed(() => {
+  const value = props.value?.type || _type.value;
+  return options.includes(value) ? value : DEFAULT_ARRAY_FORMAT;
+});
 
 const handleClearJSONStr = () => {
   _JSONStr.value = '';
@@ -138,7 +138,7 @@ const format = () => {
 };
 const trans2qs = () => {
   format();
-  _queryString.value = qs.stringify(JSON.parse(JSONStr.value), {
+  _queryString.value = qsUtil.stringify(JSON.parse(JSONStr.value), {
     arrayFormat: type.value,
     encode: false
   });
@@ -149,13 +149,13 @@ const trans2qs = () => {
   });
 };
 const qs2json = () => {
-  _JSONStr.value = JSON.stringify(qs.parse(queryString.value));
+  let queryStr = queryString.value;
+  let regRes = /^(https?:\/\/|\/\/)(.*)\?(.*)$/.exec(queryStr);
+  regRes && (queryStr = regRes[3]);
+  const options = { arrayFormat: type.value, decode: true };
+  _JSONStr.value = JSON.stringify(qsUtil.parse(queryStr, options));
   format();
-  emit('input', {
-    json: _JSONStr.value,
-    qs: queryString.value,
-    type: type.value
-  });
+  emit('input', { json: _JSONStr.value, qs: queryStr, type: type.value });
 };
 const handleQsInput = (value: string) => {
   _queryString.value = value;
@@ -173,7 +173,7 @@ const handleJSONInput = (value: string) => {
     type: type.value
   });
 };
-const handleTypeChange = (value: StringifyOptions) => {
+const handleTypeChange = (value: FormatOptions) => {
   _type.value = value;
   emit('input', {
     json: JSONStr.value,
