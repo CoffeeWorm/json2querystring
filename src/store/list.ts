@@ -2,15 +2,13 @@ import { ref } from 'vue';
 import { defineStore } from 'pinia';
 import { ElMessageBox, ElMessage } from 'element-plus';
 import atc from '@wei-tools/atc';
-import type { IStringifyOptions } from 'qs';
+import type { FormatOptions } from '@/components/qs-transfer/interface';
 
 export interface StoreItem {
   id: number;
   name: string;
-  value?: { json: string; qs: string; type: StringifyOptions };
+  value?: { json: string; qs: string; type: FormatOptions };
 }
-export type StringifyOptions = Exclude<IStringifyOptions['arrayFormat'], undefined>;
-
 
 export default defineStore(
   'list',
